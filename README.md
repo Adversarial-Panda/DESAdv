@@ -2,7 +2,7 @@
 
 [![My Skills](https://skillicons.dev/icons?i=python,pytorch)](https://skillicons.dev)  
 
-![Alt text](https://github.com/Adversarial-Panda/des-adv/blob/main/images/des_adv_framework.png)
+![Alt text](https://github.com/Adversarial-Panda/des-adv/blob/main/images/des_adv_framework_2.png)
 
 
 
