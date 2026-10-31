@@ -1,0 +1,6 @@
+cff-version: 1.2.0
+message: "Please cite the ACM Web 2027 DES-Adv paper. Author identities and DOI will be added after the anonymity period."
+title: "DES-Adv: One Ensemble Does Not Fit All"
+type: software
+version: 0.1.0
+# TODO: After review, add author identifiers, DOI, publication date.

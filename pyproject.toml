@@ -1,0 +1,27 @@
+[build-system]
+requires = ["setuptools>=69", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "desadv-web-eval"
+version = "0.1.0"
+description = "DES-Adv paper-aligned selection and reproducible Web vision evaluation"
+requires-python = ">=3.10"
+dependencies = ["numpy>=1.24", "Pillow>=10"]
+
+[project.optional-dependencies]
+vision = ["torch>=2.2", "torchvision", "timm", "faiss-cpu", "tqdm", "pandas"]
+web = ["boto3", "google-cloud-vision", "huggingface-hub", "requests", "openai", "anthropic", "google-genai"]
+captcha = ["gradio", "transformers", "torch", "playwright"]
+test = ["pytest>=7", "PyYAML"]
+
+[project.scripts]
+desadv-web-predict = "desadv.web.predict:main"
+desadv-web-evaluate = "desadv.web.evaluate:main"
+desadv-captcha-evaluate = "desadv.captcha.evaluate:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
