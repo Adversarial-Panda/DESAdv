@@ -1,0 +1,5 @@
+image_id,method,split,label,path
+0000,SMER,clean,tabby cat,/replace/path/clean_0000.png
+0000,SMER,adv,tabby cat,/replace/path/smer_0000.png
+0000,SMER_DESAdv,clean,tabby cat,/replace/path/clean_0000.png
+0000,SMER_DESAdv,adv,tabby cat,/replace/path/desadv_0000.png

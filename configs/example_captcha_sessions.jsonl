@@ -1,0 +1,2 @@
+{"solver":"CLIP ViT-B/32","layout":"grid","condition":"clean","session_id":"demo001","solved":true}
+{"solver":"CLIP ViT-B/32","layout":"grid","condition":"adv_8_255","session_id":"demo001","solved":false}

@@ -1,0 +1,16 @@
+# Config record only. Use --provider and --model in desadv-web-predict.
+# Availability of exact model IDs is dynamic and must be checked by users.
+services:
+  aws: {operation: DetectLabels, MaxLabels: 10, MinConfidence: 0, k: [1,5,10]}
+  google_vision: {feature: LABEL_DETECTION, MaxResults: 10, k: [1,5,10]}
+  imagga: {endpoint: /v2/tags, language: en, max_tags: 10, k: [1,5,10]}
+  hf_convnext: {model: facebook/convnext-base-224, k: [1,5,10]}
+  openai: {paper_model: gpt-5.6, k: [1,5]}
+  anthropic: {paper_model: claude-sonnet-4-6, k: [1,5]}
+  gemini: {paper_model: gemini-3.6-flash, temperature: 0, k: [1,5]}
+protocol:
+  shared_paired_image_count: 1000
+  lexical_matching: lexical_overlap
+  primary_attack: SMER
+  refinements: false
+  target_requests: evaluation_only
