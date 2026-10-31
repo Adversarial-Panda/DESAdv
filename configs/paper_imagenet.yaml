@@ -1,0 +1,48 @@
+paper: "One Ensemble Does Not Fit All: Rethinking Query-Free Attacks on Web Vision Services"
+protocol: paper_2026_10_31
+dataset:
+  name: ImageNet-1K
+  dsel_size: 30000
+  evaluation_size: 1000
+  selection: all_nine_targets_benign_correct_offline_only
+  path_overlap_prohibited: true
+feature_extractor:
+  family: DINO
+  model_id: vit_base_patch16_224.dino
+  normalize_l2: true
+  retrieval: faiss_exact_cosine
+  k: 7
+surrogates:
+  - resnet18
+  - inception_v3
+  - deit_tiny_patch16_224
+  - vit_tiny_patch16_224
+  - efficientnet_b0
+  - xcit_tiny_12_p8_224
+select_n: 4
+signals:
+  order: [C, G, S]
+  C: fraction_correct_on_unweighted_roc
+  G: one_minus_mean_pairwise_input_gradient_cosine_including_self
+  S: clean_and_noisy_cross_entropy_gradient_cosine
+  pseudo_label: each_surrogates_clean_argmax_reused_on_noisy_input
+  normalize: ["C", "G/2", "(1+S)/2"]
+  gaussian_sigma: 0.01
+coefficients:
+  initial: [0.4, 0.5, 0.1]
+  lambda_adaptive: 0.5
+  main_selector: C+G+S
+  attack_optimizers_unmodified: true
+attacks:
+  methods: [ens, svre, adaea, smer]
+  optimizers: [mifgsm, pgd]
+  linf_epsilon: 0.03137254901960784
+  alpha: 0.00784313725490196
+  steps: 10
+  momentum_mu: 1.0
+  adaea_tau_paper: -0.3
+  adaea_smer_beta_paper: 10.0
+  refinements_enabled: false
+results:
+  seeds: 5
+  asr: conditional_on_joint_target_clean_correct
