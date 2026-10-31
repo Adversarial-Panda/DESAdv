@@ -585,7 +585,7 @@ def get_observation(frames: list[Frame]) -> tuple[
         for idx2, desc in frame.relations.items():
             desc = desc.replace(f"Frame {idx1}", mapping[idx1])
             desc = desc.replace(f"Frame {idx2}", mapping.get(idx2, "None"))
-            relations.append(f"{mapping[idx1]} and {mapping.get(idx2, "None")}: {desc}")
+            relations.append(f"{mapping[idx1]} and {mapping.get(idx2, 'None')}: {desc}")
 
         descriptions.append(f"{mapping[idx1]}: {frame.description}")
 
