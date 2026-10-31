@@ -1,7 +1,6 @@
 # DES-Adv
 
 **One Ensemble Does Not Fit All: Rethinking Query-Free Attacks on Web Vision Services**  
-*The ACM Web Conference 2027 (WWW ’27)*
 
 DES-Adv is an input-adaptive surrogate selection framework for **query-free
 black-box transfer attacks**. For each input image, it retrieves a local region
