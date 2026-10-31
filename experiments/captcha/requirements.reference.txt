@@ -1,0 +1,19 @@
+# Main environment (.venv): CAPTCHA app, all solvers except Halligan, compare_results.py, download_weights.py.
+# Versions used for the experiments (Python 3.14, CUDA GPU with 8 GB).
+torch==2.14.1
+torchvision==0.29.1
+ultralytics==8.4.171
+transformers==5.18.0
+accelerate==1.15.0
+bitsandbytes==0.50.2
+huggingface_hub==1.33.0
+safetensors==0.8.0
+gradio==6.29.1
+pandas==3.0.6
+numpy==2.5.3
+pillow==12.3.0
+opencv-python==5.0.0.93
+playwright==1.63.0
+# YOLO-World text encoder (Ultralytics would otherwise install it on first use)
+ftfy==6.3.1
+clip @ git+https://github.com/ultralytics/CLIP.git@7ffa84b3bfa40c42ecc1c77147a855e69cb2dd40
